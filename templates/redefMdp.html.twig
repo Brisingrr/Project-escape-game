@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+     <main class="container">
+        	
+        	<section class="row sRedefMdp" >
+                <div class="col-12 divRedefMdp">
+                    <h1>Redéfinir le mot de passe</h1>
+					<form method="POST" action="{{path('mdp_redef')}}">
+		                <p>
+                            <label for="mdp1">Ancien mot de passe :</label>
+                            <input type="password" name="mdp1" id="mdp1">
+				        </p>
+                        <p>	
+                            <label for="mdp2">Nouveau mot de passe :</label>
+                            <input type="password" name="mdp2" id="mdp2">
+                        </p>
+                        <p>
+                            <label for="mdp3">Confirmer nouveau mot de passe :</label>
+                            <input type="password" name="mdp3" id="mdp3">
+                        </p>
+                            <input type="submit" name="Envoyer">
+                	
+                	</form>
+                </div>
+            </section>
+
+        </main>
+{% endblock %}

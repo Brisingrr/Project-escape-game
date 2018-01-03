@@ -1,0 +1,65 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+	Salles
+{% endblock %}
+
+{% block content %}
+		<main class="container">
+			<section class="row nomSalle">	
+				<div class="col-12 divH1">
+					<h2>{{infos.nom}}</h2>
+					<p>{{entreprise.nom_entreprise}}</p>
+				</div><!-- .div divH1 -->
+			</section>
+
+			<section class="row sectionTitreDescriptionSalle">				
+				<div class="col-12 titreSalle">	
+					<h3>Description / Résumé</h3>
+				</div>
+			</section>
+
+			<section class="row sectionDescriptionSalle">
+				<div class="col-md-6 divDescription">
+					{% if infos.description != "" %}                    
+                        <p>{{infos.description}}</p>
+                    {% else %}
+                        <p> Pas de description pour cette salle !</p>
+                    {% endif %}	
+				</div>
+				<div class="col-md-6 divImg">
+					<img src="{{ asset('imgs/entreprise/'~entreprise.id~'/salles/')~imagesalle.image_salle }}" class="salles" alt="salle" >	
+				</div>
+			</section>
+
+			<section class="row sectionNoteAndComment">				
+				<div class="col-md-6 divComAndNote">
+					{% if user %}
+                         {% include 'partials/commentaires_form.html.twig'%}
+                    {% else %}
+                        <p>Vous devez être connecté(e) pour ajouter un commentaire</p>
+                    {% endif %}
+				</div>
+
+				<div class="col-md-6 divOldComment">
+					<h3>NOTE DES UTILISATEURS :</h3>
+					{% if note %}
+					{% for  i  in 1.. note  %} <i class="fa fa-star fa-2x" style="color:orange"></i> 
+					{% endfor %}
+					{% endif %}
+
+					{% if reste %}
+						{% for  i in 1.. reste %} <i class="fa fa-star-o fa-2x " style="color:orange"></i>
+						{% endfor %}                             
+					{% endif %}
+					<br>
+					<br>
+					<br>
+					<h3>COMMENTAIRES :</h3>
+					<br>
+						{% for ligne in commentaires %}
+			    			<p>Publié le {{ligne.date_commentaires|date('d/m/Y')}} par {{ligne.pseudo}} : {{ligne.commentaires}}</p>            
+                     	{% endfor %}	
+				</div>
+			</section>
+{% endblock %}

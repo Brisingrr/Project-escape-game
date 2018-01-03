@@ -1,0 +1,44 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Entreprises
+{% endblock %}
+
+{% block content %}
+
+        <main class="container">        	
+        	<section class="row sEntreprise">
+                    <div class="col-md-2 text-center">
+                        <!-- <p>Ici se trouve le LOGO de l'entreprise</p> -->
+                        <img src="{{ asset('imgs/entreprise/'~entrepri.id~'/')~imageentreprise.image }}" class="entreprise" alt="entreprise" >
+                    </div><!-- .div -->
+            		<div class="col-md-10 text-center">
+                        <h2>{{entrepri.nom_entreprise}}</h2>
+                        <p>{{entrepri.adresse}} - {{entrepri.code_postal}}  {{entrepri.ville}}</p>
+                    </div><!-- .div -->
+            </section>
+
+            <section class="row sSalle">
+                {% for ligne in salleEnt %}
+                        <div class="col-12 text-center">
+                            <h2>{{ ligne.nom }}</h2>
+                        </div><!-- .div -->
+                        <div class="col-md-6 divImg">
+                            {% for infos in imagesalle %}
+                               <img src="{{ asset('imgs/entreprise/'~entrepri.id~'/salles/')~ligne.image_salle }}" class="imagesalle" alt="images">
+                            {% endfor %}    
+                        </div><!-- .div imgs -->
+                        <article class="col-md-6 divArticle">
+                            <h3>Description :</h3> 
+                            {% if ligne.description != "" %}                    
+                                <p>{{ligne.description}}</p>
+                            {% else %}
+                                <p> Pas de description pour cette salle !</p>
+                            {% endif %}                               
+                        </article><!-- .artcicle -->
+                        <div class="col-12 divEnSavoirPlus text-center">
+                            <a href="{{ path('comment',{'id':ligne.id}) }}">En savoir plus...</a>
+                        </div>
+                {% endfor %} 
+        	</section><!-- .section1 row -->
+{% endblock %}

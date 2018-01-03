@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <main class="container">
+        	
+        	<section class="row sRedefEmail" >
+                <div class="col-12 divRedefEmail">
+                    <h1>Redéfinir mot de passe</h1>
+					<form method="POST" action="{{ path('redefinir_mdp_envoye', {'id':id, 'token':token}) }}">
+		
+						<p>
+							<label for="mdp1">Mot de passe :</label>
+							<input type="password" name="mdp1" id="mdp1">
+						</p>
+						<p>
+							<label for="mdp2">Confirmer votre mot de passe :</label>
+							<input type="password" name="mdp2" id="mdp2">
+						</p>
+						<p>
+							<input type="hidden" name="id" value="<?= $_GET['id'];?>">
+							<input type="submit" name="Envoyer">
+						</p>
+
+					</form>
+                </div>
+            </section>
+
+        </main><!-- .main -->
+{% endblock %}

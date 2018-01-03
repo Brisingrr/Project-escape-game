@@ -1,0 +1,24 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+    <form action="{{path('repconnect')}}"  method="POST">
+
+		<p><label>Pseudo : <input type="text" name="pseudo"></label></p>	
+
+		<p><label> Mot de passe : <input type="password" name="mot_de_passe"></label></p>
+
+		<p><button type= "submit">Valider</button></p>
+
+	</form>
+
+{% endblock %}

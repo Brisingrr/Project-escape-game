@@ -1,0 +1,36 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+     <main class="container">
+        	
+        	<section class="row sTesInfos">
+                <div class="col-12">
+                    <h1>Infos Personnelles :</h1>
+                </div>
+            </section>
+            <section class="row sInformationsCompte">
+                <div class="col-12 divInformationsCompte">
+                    <p>Pseudo : {{ user.pseudo }}</p>
+                    <p>Email : {{ user.email }}</p>
+                    <p>Ville : {{ user.ville }}</p>
+                    <p>Code Postal : {{ user.code_postal }}</p>
+                </div>
+            </section>
+            <section class="row sRedefMotdePasseEtEmail">
+                <div class="col-md-6 divRedefMotdePasse">
+                    <p><a href="{{path('redef_mdp')}}">Modifier votre mot de passe</a></p>
+                </div>
+                <div class="col-md-6 divRedefEmail">
+                    <p><a href="{{path('modif_profil')}}">Modifier votre profil</a></p>
+                </div>
+            </section>
+            <section class="row sOldComment">
+                <div class="col-12 divOldComment">
+                    <h2>Anciens commentaires</h2>
+                    <p>' mettre les anciens commentaires dans des p ou des div '</p>
+                </div>
+            </section>
+
+        </main><!-- .main -->
+
+{% endblock %}

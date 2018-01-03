@@ -1,0 +1,48 @@
+		<form action="{{path('verif')}}" method="POST">
+			<h3>AVIS SUR LA SALLE :</h3>
+			
+			<p><textarea name="commentaires" id="commentaires" rows="7" placeholder="Ecris ton commentaire ici..."></textarea></p>
+			<!--fin Formulaire Avis-->
+			<!--debut Notation-->
+			<input type="hidden" name="id_salle" value="{{infos.id}}" />
+			<div class="row">
+   				<div class="col-12">
+					<div class="rating">
+						<a href="#5" data-note="5" title="Donner 5 étoiles">★</a>
+						<a href="#4" data-note="4" title="Donner 4 étoiles">★</a>
+						<a href="#3" data-note="3" title="Donner 3 étoiles">★</a>
+						<a href="#2" data-note="2" title="Donner 2 étoiles">★</a>
+						<a href="#1" data-note="1" title="Donner 1 étoile">★</a>
+						<input type="hidden" name="notes" class="receive-note"/>
+					</div>
+				</div>
+			</div>
+			<button>Envoyer</button>
+		</form>
+		<script>
+				$('.rating [data-note]').on('click',function(e)
+				{
+				e.preventDefault();
+
+				var $this = $(this);
+					val = $this.attr('data-note');
+
+				$this.closest('.rating').find('input.receive-note').val(val);
+				});
+		</script>
+
+
+
+
+
+
+
+          
+    
+     		
+               	
+          
+
+
+
+  

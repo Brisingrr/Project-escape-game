@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <main class="container">
+			
+			<section class="row sMentionsLegales">
+				<div class="col-12 divMentions">
+					<h2>Mentions Légales</h2>
+				</div>
+				<div class="col-12 divEdit">
+					<p>Le site Myescapegame.fr est édité par :</p>
+					<p>MyEscapeGame.fr - <span>Tom CHARBOIS</span>, <span>Xavier KOEFF</span>, <span>Valérie THIRIET</span>, <span>Thomas REBOLI</span>, <span>Joris BAILLOT</span>, stagiaires en formation à WebForce3 situé 4 rue Paul Doumer, 89000 Auxerre.</p>
+					<p>Le chef de projet est <span>Thomas REBOLI</span>, la maintenance du site est assurée par toute l'équipe.</p>
+				</div>
+				<div class="col-12 divHeberg">
+					<p>Le site Myescapegame.fr n'est pas encore hébergé.</p>
+				</div>
+				<div class="col-12 divDeclaration">
+					<h2>Déclaration de confidentialité</h2>
+				</div>
+				<div class="col-12 divDonnees">
+					<p>Myescapegame.fr prête une attention particulière à vos données personnelles, et s’engage de par ses conditions d’utilisation à ne transmettre, vendre ou céder à un tiers aucune information personnelle vous concernant.</p>
+					<p>Conformément à la loi « Informatique et Libertés » N° 78-17 du 6 Janvier 1978, vous bénéficiez d’un droit d’accès, de rectification et d’opposition. Pour l’excercer, merci de bien vouloir nous contacter par l’intermédiaire du formulaire de contact.</p>
+				</div>
+				<div class="col-12 divRetour">
+					<p><a href="{{path('homepage')}}">Retour à l'accueil</a></p>
+				</div>
+					
+			</section>
+		</main>
+{% endblock %}

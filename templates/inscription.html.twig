@@ -1,0 +1,182 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+		<main class="container">
+        	<section class="row">
+
+        		<div class="col-12 titreInscription">
+
+        			<section class="text-left inscription" id="inscription">
+
+        				{% if message.global is defined %}
+    						{{ message.global|raw }}
+    					{% endif %}
+
+        				<form method="POST" action="{{path('inscri')}}"> 
+						
+        					<div class="text-center mh-100 col-md-5 inscription1" id="inscription1">
+
+						<fieldset>
+							<legend>Identité</legend>
+							<p>
+								<label for="nom">Nom</label>
+								<input type="text" name="nom" id="nom">
+								{% if message.nom is defined %}
+		        					{% for m in message.nom %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+							<p>	
+								<label for="prenom">Prénom</label>
+								<input type="text" name="prenom" id="prenom">
+								{% if message.prenom is defined %}
+		        					{% for m in message.prenom %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+						</fieldset>
+
+						<fieldset>
+							<legend>Coordonnée</legend>
+							<p>	
+								<label for="ville">Ville</label>
+								<input type="text" name="ville" id="ville">
+								{% if message.ville is defined %}
+		        					{% for m in message.ville %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+							<p>
+								<label for="code_postal">Code postal</label>
+								<input type="text" name="code_postal" id="code_postal">
+								{% if message.code_postal is defined %}
+		        					{% for m in message.code_postal %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+						</fieldset>
+
+							</div>
+							<div class="text-center col-md-5 mh-100 inscription2" id="inscription2">
+						<fieldset>
+							<legend>Identification de connexion</legend>
+							<p>
+								<label for="pseudo">Choisir un pseudo</label>
+								<input type="pseudo" name="pseudo" id="pseudo">
+							<script type="text/javascript">
+								function checkPseudo(){
+    							var pseudo = $("#pseudo").val();
+
+    							if(pseudo.trim().length < 5){
+        							$("#erreurPseudo").html("<p>! Vous devez entrer plus de 5 caractère !");
+        							$("#pseudo").css("border-color","#DF0101");
+        							$("#pseudo").css("border-color","#FE2E2E");
+        							pseudoOk = false;
+    							}else{
+        							$("#erreurPseudo").html("");
+        							$("#pseudo").css("border-color","#04B404");
+        							$("#pseudo").css("border-color","#3ADF00");
+        							pseudoOk = true;
+    							}
+
+    							verifForm(); 
+							}
+							</script>
+								{% if message.pseudo is defined %}
+		        					{% for m in message.pseudo %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+							<p>
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email">
+								{% if message.email is defined %}
+		        					{% for m in message.email %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>							
+							<p>
+								<label for="email">confirmé Email</label>
+								<input type="email" name="email2" id="email2">
+							<script type="text/javascript">
+								function checkEmail2(){
+    							var email = $("#email").val();
+    							var email2 = $("#email2").val();
+    							if(email2 != email){
+        							$("#erreurEmail2").html("<p>! Vous devez entrer deux e-mail identique !");
+        							$("#email").css("border-color","#DF0101");
+        							$("#email2").css("border-color","#FE2E2E");
+        							emailOk = false;
+    							}else{
+        							$("#erreurEmail2").html("");
+        							$("#email").css("border-color","#04B404");
+        							$("#email2").css("border-color","#3ADF00");
+        							emailOk = true;
+    							}
+    							verifForm(); 
+								}
+							</script>
+								{% if message.email is defined %}
+		        					{% for m in message.email %}
+		    							{{ m|raw }}
+		        					{% endfor %}        							
+        						{% endif %}
+							</p>
+							<p>
+								<label for="pass1">Mot de passe</label>
+								<input type="password" name="pass1" id="pass1">
+								{% if message.pass is defined %}
+		        					{% for m in message.pass %}
+		    							{{ m|raw }}
+		        					{% endfor %}
+        						{% endif %}
+							</p>
+							<p>
+								<label for="pass2">Confirmé mot de passe</label>
+								<input type="password" name="pass2" id="pass2">
+							<script type="text/javascript">
+								function checkPasseword2(){
+    							var passeword = $("#pass1").val();
+    							var passeword2 = $("#pass2").val();
+    							if(passeword2 != passeword){
+        							$("#erreurPasseword2").html("<p>! Vous devez entrer deux mot de passe identique !");
+        							$("#pass1").css("border-color","#DF0101");
+        							$("#pass2").css("border-color","#FE2E2E");
+        							passewordOk = false;
+    							}else{
+        							$("#erreurPasseword2").html("");
+        							$("#pass1").css("border-color","#04B404");
+        							$("#pass2").css("border-color","#3ADF00");
+        							passewordOk = true;
+    							}
+    							verifForm(); 
+							}
+							</script>
+								{% if message.pass is defined %}
+		        					{% for m in message.pass %}
+		    							{{ m|raw }}
+		        					{% endfor %}
+        						{% endif %}
+							</p>
+						</fieldset>
+						</div>
+						<input type="submit" id="boutonValid" placeholder="Valider">
+
+						<p><a href="{{path('homepage')}}">Retour à l'acceuil</a></p>
+						</form>
+
+		        	</section><!-- .section inscription -->
+
+        		</div><!-- .div -->
+
+    		</section><!-- .section row -->
+
+        </main><!-- .main -->
+{% endblock %}
+

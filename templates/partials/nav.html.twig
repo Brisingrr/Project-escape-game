@@ -1,0 +1,23 @@
+
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark pl10 pr10">
+        <a class="navbar-brand" href="{{path('homepage')}}">MyEscapeGame<img class="imgLogo" src="{{asset('img/myescapegamelogo.png')}}"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link before after" href="{{path('homepage')}}">Accueil<span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link before after" href="{{path('contacter')}}">Contact</a></li>
+                {% if user is defined and user %}
+                 <li class="nav-item"><a class="nav-link before after" href="{{path('deco')}}">Deconnexion</a></li>
+                 <li class="nav-item"><a class="nav-link before after" href="{{path('profil_util')}}">Profil</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link before after" href="{{path('connect')}}">Connexion</a></li>
+                <li class="nav-item"><a class="nav-link before after" href="{{path('oubli')}}">Oublie mot de passe</a></li>
+                <li class="nav-item"><a class="nav-link before after" href="{{path('inscri')}}">Inscription</a></li>
+                {% endif %}
+              </ul>
+            </div>
+        </nav>
+
+        

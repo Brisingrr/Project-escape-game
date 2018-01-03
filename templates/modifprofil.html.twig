@@ -1,0 +1,41 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+     <main class="container">
+        	
+        	<section class="row sTesInfos">
+                <div class="col-12">
+                    <h1>Modifier votre profil :</h1>
+                </div>
+            </section>
+            <section class="row sInformationsCompte">
+                <form method="POST" action="{{path('profil_modifie')}}">
+                <div class="col-12 divInformationsCompte">
+                   <fieldset>
+                            <legend>Identité</legend>
+                            <p>
+                                <label for="pseudo">Pseudo</label>
+                                <input type="text" value="{{ user.pseudo }}" name="pseudo" id="pseudo">
+                            </p>
+                            <p> 
+                                <label for="email">Email</label>
+                                <input type="text" value="{{ user.email }}" name="email" id="email">
+                            </p>
+                            <p> 
+                                <label for="ville">Ville</label>
+                                <input type="text" name="ville" value="{{ user.ville }}" id="ville">
+                            </p>
+                            <p> 
+                                <label for="code_postal">Code postal</label>
+                                <input type="text" name="code_postal" value="{{ user.code_postal }}" id="code_postal">
+                            </p>
+                        </fieldset>
+                    <input type="submit" id="boutonValid" placeholder="Valider">
+                </div>
+            </form>
+            </section>
+            
+
+        </main><!-- .main -->
+
+{% endblock %}
